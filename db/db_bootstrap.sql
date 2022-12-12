@@ -1,7 +1,7 @@
 CREATE DATABASE final_project_db;
-CREATE USER 'webapp'@'%' IDENTIFIED BY 'zabaransu';
+CREATE USER 'webapp'@'localhost' IDENTIFIED BY 'zabaransu';
 GRANT ALL PRIVILEGES ON final_project_db.* TO 'webapp'@'%';
-FLUSH PRIVILEGES ;
+FLUSH PRIVILEGES;
 
 USE final_project_db;
 
