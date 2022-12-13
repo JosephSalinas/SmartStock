@@ -86,7 +86,7 @@ create table Admin (
 );
 
 create table Customer (
-	CustID INT PRIMARY KEY ,
+	CustID INT PRIMARY KEY AUTO_INCREMENT,
 	First_Name VARCHAR(50),
 	Last_Name VARCHAR(50),
 	Email VARCHAR(50),
@@ -99,14 +99,14 @@ create table Customer (
 
 
 create table Authentication (
-	CustID INT PRIMARY KEY ,
+	CustID INT PRIMARY KEY AUTO_INCREMENT,
 	Type VARCHAR(50) ,
 	AuthNum VARCHAR(50) ,
 	FOREIGN KEY (CustID) REFERENCES Customer(CustID)
 );
 
 create table Customer_Finance_Details (
-	CustID INT PRIMARY KEY ,
+	CustID INT PRIMARY KEY AUTO_INCREMENT,
 	CreditScore INT,
 	Income VARCHAR(50),
 	AmountTraded VARCHAR(50),
