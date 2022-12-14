@@ -18,3 +18,5 @@ def get_stock_info(stock_id):
 ```
 
 Each defined route, such as the one above, issues a database query to fetch, insert, or update data.
+
+Video link:https://drive.google.com/file/d/1GEF1BcoUgAjPBFXrZMiSngf2nMjySCjr/view?usp=share_link
