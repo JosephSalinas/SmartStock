@@ -115,7 +115,10 @@ def get_company_info(company_id):
         f'WHERE Revenue.CompanyID = {company_id} '
         'UNION '
         'SELECT * FROM Market_Share '
-        f'WHERE Market_Share.CompanyID = {company_id};'
+        f'WHERE Market_Share.CompanyID = {company_id} '
+        'UNION '
+        'SELECT * FROM Profit '
+        f'WHERE Profit.CompanyID = {company_id};'
     )
 
     try:
@@ -196,8 +199,7 @@ def post_account_form():
 
     # Insert customer data
     query1 = (
-        'INSERT INTO Customer(First_Name, Last_Name, DOB, Phone) ' 
-        f'VALUES(\"{f_name}\", \"{l_name}\", \"{dob}\", \"{phone}\")'
+        f'INSERT INTO Customer(First_Name, Last_Name, DOB, Phone) VALUES(\"{f_name}\", \"{l_name}\", \"{dob}\", \"{phone}\");'
     )
     try:
         cursor.execute(query1)

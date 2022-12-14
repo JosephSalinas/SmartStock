@@ -86,7 +86,7 @@ create table Admin (
 );
 
 create table Customer (
-	CustID INT PRIMARY KEY AUTO_INCREMENT,
+	CustID INT PRIMARY KEY AUTO_INCREMENT=100,
 	First_Name VARCHAR(50),
 	Last_Name VARCHAR(50),
 	Email VARCHAR(50),

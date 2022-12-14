@@ -6,7 +6,7 @@ from pymysql.err import OperationalError
 # define a logger for debugging
 logger = logging.getLogger(__name__)
 
-admins = Blueprint('admins', __name__)
+admins = Blueprint('admin', __name__)
 
 @admins.route('/login')
 def get_admin_form():
@@ -25,12 +25,11 @@ def get_admin_form():
         </form>
     '''
 
-@admins.route('/loginForm', methods=['POST'])
-def post_admin_form():
+@admins.route('/loginForm/<admin_id>', methods=['GET'])
+def post_admin_form(admin_id):
     '''
-    POST: Return a comprehensive list of customers of whom the admin was a support rep for.
+    GET: Return a comprehensive list of customers of whom the admin was a support rep for.
     '''
-    admin_id = request.form['first']
 
     cursor = db.get_db().cursor()
     query = (
@@ -66,7 +65,7 @@ def get_user_info(user_id):
     GET: Return detailed information for a specific user.
     '''
     cursor = db.get_db().cursor()
-    query = f'SELECT * FROM Customers WHERE Customers.CustID = {user_id}'
+    query = f'SELECT * FROM Customer WHERE Customer.CustID = {user_id}'
 
     try:
         cursor.execute(query)
